@@ -25,11 +25,10 @@ impl fmt::Display for Matrix {
 }
 
 // Tuples can be used as function arguments and as return values.
-fn transpose(matrix: (f32, f32, f32, f32)) -> Matrix {
+fn transpose(matrix: Matrix) -> Matrix {
     // `let` can be used to bind the members of a tuple to variables.
-    let (a, b, c, d) = matrix;
 
-    Matrix(a, c, b, d)
+    Matrix(matrix.0, matrix.2, matrix.1, matrix.3)
 }
 
 fn main() {
@@ -72,5 +71,8 @@ fn main() {
 
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!("{}", matrix);
-    println!("{}", transpose((1.1, 1.2, 2.1, 2.2)));
+    println!("Matrix:\n{}", matrix);
+    println!("Transpose:\n{}", transpose(matrix));
+    //println!("{}", transpose((1.1, 1.2, 2.1, 2.2)));
 }
+  
